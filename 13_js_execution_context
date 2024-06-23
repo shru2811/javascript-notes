@@ -1,0 +1,13 @@
+initially the js file is kept in a global execution context
+for browser the value of this comes window
+Types of execution context:
+1. Global execution context
+2. Function execution context
+3. eval execution context
+
+when a js file runs
+phase 1: global execution -> this created
+phase 2: memory phase - initializes all the variables with undefined
+phase 3: execution phase -> if a function comes a new variable environemnt + thread is created with its memory and execution phase
+            when this completes the new variable environemnt is deleted
+
