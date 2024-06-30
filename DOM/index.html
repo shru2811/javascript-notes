@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM manipulation</title>
+</head>
+<body style="background-color: black; color: white;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+    <script>
+        //add the element
+        function addLang(langName){
+            const li = document.createElement('li');
+            li.innerHTML = `${langName}`;
+            document.querySelector('.language').appendChild(li);
+        }
+        addLang("Java");
+        addLang("Python");//Non-optimized method
+        function addLang2(langName){
+            const li = document.createElement('li');
+            li.appendChild(document.createTextNode(langName))       //optimized way of approaching
+            document.querySelector('.language').appendChild(li);
+        }
+        addLang2("Scala")
+        addLang2("NodeJS")
+        //edit
+        const secondLang = document.querySelector("li:nth-child(3)");
+        const newli = document.createElement('li')
+        newli.textContent = "goLang"  
+        secondLang.replaceWith(newli)
+        //remove
+        newli.remove()
+
+    </script>
+</body>
+</html>

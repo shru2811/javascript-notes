@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async functions</title>
+</head>
+
+<body>
+    <h1>Shruti Srivastava</h1>
+    <button id="stop">Stop!</button>
+    <script>
+        const sayHi = function () {
+            document.querySelector('h1').innerHTML = "I'm aspiring Web developer";
+        }
+        const changeH1 = setTimeout(sayHi, 2000);
+        document.querySelector('#stop').addEventListener('click', function (e) {
+            clearTimeout(changeH1);
+            document.querySelector('h1').innerHTML = "stopped the timeout";
+        })
+    </script>
+</body>
+
+</html>
+
+<!-- complete runtime allows js to be asynchrounous but default engine is synchronous -->

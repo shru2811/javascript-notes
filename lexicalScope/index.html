@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clousre</title>
+</head>
+<body>
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+    <button id="yellow">Yellow</button>
+    <button id="pink">Pink</button>
+    <button id="purple">Purple</button>
+    <button id="black">Black</button>
+    <button id="white">White</button>
+    <button id="blue">Blue</button>
+    <script>
+        function clickHandler(color){
+            return function(){
+                document.body.style.backgroundColor = `${color}`       //it can easily access the variables of parent function
+            }
+        }
+        document.getElementById("orange").onclick = clickHandler("orange");
+        document.getElementById("green").onclick = clickHandler("green");
+        document.getElementById("yellow").onclick = clickHandler("yellow");
+        document.getElementById("pink").onclick = clickHandler("pink");
+        document.getElementById("purple").onclick = clickHandler("purple");
+        document.getElementById("black").onclick = clickHandler("black");
+        document.getElementById("white").onclick = clickHandler("white");
+        document.getElementById("blue").onclick = clickHandler("blue");
+
+
+    </script>
+</body>
+</html>

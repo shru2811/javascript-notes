@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <ul id="images" style="list-style-type:none;">
+        <li ><img id="premMandir" src="images/1.png" style="height: 200px; width:300px; "></li>
+        <li ><img id="ramMandir" src="images/2.png" style="height: 200px; width:300px;"></li>
+        <li><img id="kedarnath" src="images/3.png" style="height: 200px; width:300px;"></li>
+        <li><img id="badrinath" src="images/badrinath.jpg" style="height: 200px; width:300px;"></li>
+        <li><a id="google" href="https://www.youtube.com/watch?v=_TjtAyMkiTI&t=12413s&ab_channel=ChaiaurCode">Google</a></li>
+    </ul>
+    <script>
+        document.getElementById('images').addEventListener('click', function(e){
+            console.log("list clicked")
+        })
+
+        //causes event bubbling : It is a process that starts with the element that triggered the event and then bubbles up to the containing elements in the hierarchy. In event bubbling, the event is first captured and handled by the innermost element and then propagated to outer elements.
+            //o/p: kedarnath image clicked
+            //      list clicked
+
+        document.getElementById('kedarnath').addEventListener('click', function(e){
+               console.log("kedarnath image clicked")  
+        })
+
+        //in some cases there is a need to stop the event propogation to parent. use stopPropogation method to avoid the event bubbling
+
+        document.getElementById('ramMandir').addEventListener('click', function(e){
+            console.log("Ram mandir image is being clicked")
+            e.stopPropagation();
+        })
+
+        //third parameter in the addEventListener: 
+        // Optional (default = false).
+        // true - The handler is executed in the capturing phase.   propogation starts from parent to inner element (capturing should be true for both parent and child element)
+        // false - The handler is executed in the bubbling phase.   propogation starts from inner element to the parent element
+
+        document.getElementById('premMandir').addEventListener('click', function(e){
+            console.log("PremMandir image is clicked")
+        })
+
+        //prevent default in cases of default actions of link clicks or forms
+        document.getElementById('google').addEventListener('click', function(e){
+            e.preventDefault();     //avoids the redirecting of the page to link
+            e.stopPropagation();    //avoids bubbling
+            console.log("google link clicked")
+        })
+
+        //practice :- clicking on any image delete that particular image from the list
+        document.getElementById("images").addEventListener('click',function(e){
+            document.getElementById(e.target.id).remove();
+        },false)
+
+        
+    </script>
+</body>
+</html>
